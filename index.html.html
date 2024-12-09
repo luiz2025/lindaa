@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mensagem de Natal</title>
+  <style>
+    /* Estilo geral */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #96305a;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Imagem de fundo */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('Natal.png');
+      background-size: cover;
+      background-position: center;
+      z-index: -1;
+      filter: blur(10px);
+    }
+
+    /* Envelope */
+    .envelope {
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+      width: 120px;
+      height: 120px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .envelope img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .envelope:hover {
+      transform: scale(1.1);
+    }
+
+    /* Mensagem */
+    .mensagem-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+      max-width: 500px;
+      padding: 20px;
+      border-radius: 20px;
+      backdrop-filter: blur(5px);
+      display: none;
+    }
+
+    .mensagem {
+      background-color: rgba(189, 27, 27, 0.9);
+      padding: 15px;
+      border: 3px solid red;
+      border-radius: 20px;
+      text-align: justify;
+    }
+
+    .mensagem h1 {
+      color: white;
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .mensagem p {
+      color: white;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .mensagem .highlight {
+      display: block;
+      text-align: center;
+      color: white;
+      font-size: 20px;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      .mensagem-container {
+        width: 90%;
+        padding: 15px;
+      }
+
+      .mensagem {
+        padding: 10px;
+      }
+
+      .mensagem h1 {
+        font-size: 20px;
+      }
+
+      .mensagem p {
+        font-size: 14px;
+      }
+
+      .mensagem .highlight {
+        font-size: 18px;
+      }
+
+      .envelope {
+        width: 100px;
+        height: 100px;
+      }
+    }
+
+    @media (max-width: 460px) {
+      .envelope {
+        width: 80px;
+        height: 80px;
+      }
+
+      .mensagem-container {
+        width: 100%;
+        padding: 10px;
+      }
+
+      .mensagem {
+        padding: 8px;
+      }
+
+      .mensagem h1 {
+        font-size: 18px;
+      }
+
+      .mensagem p {
+        font-size: 12px;
+      }
+
+      .mensagem .highlight {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Envelope interativo -->
+    <div class="envelope" onclick="abrirMensagem()">
+      <img src="image-removebg-preview.png" alt="Envelope" id="envelope" />
+    </div>
+
+    <!-- Mensagem -->
+    <div class="mensagem-container" id="mensagemContainer">
+      <div class="mensagem">
+        <h1>Querida Jordana</h1>
+        <p>
+          Quero que saiba o quanto você é especial. Desde a primeira vez que a vi, percebi um brilho surreal em seus olhos. Admiro profundamente sua bondade e generosidade. Sua presença ilumina a vida de todos ao seu redor. Espero que mais adiante tenhamos a oportunidade de nos encontrar pessoalmente. Desde já, desejo a você um Feliz Natal repleto de bênçãos, amor e muita alegria.
+        </p>
+        <span class="highlight">Feliz Natal, Linda!!!</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Função para exibir a mensagem
+    function abrirMensagem() {
+      document.getElementById("mensagemContainer").style.display = "block";
+      document.getElementById("envelope").parentElement.style.display = "none";
+    }
+  </script>
+</body>
+</html>
